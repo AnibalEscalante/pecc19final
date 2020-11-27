@@ -1,0 +1,30 @@
+body {
+  background-color: #9dcddb;
+}
+nav {
+  background-color: #17a2b8;
+}
+h1 {
+  background-color: #17a2b8;
+  text-shadow: 1px 1px 1px;
+}
+#botonHome {
+  background-color: #9dcddb;
+  color: #015249;
+  border: solid 2px;
+}
+#botonHomeIco {
+  font-size: 30px;
+}
+#registrar {
+  background-color: #9dcddb;
+  color: #015249;
+  border: solid 2px;
+  text-shadow: 1px 1px 1px;
+}
+#iniciar {
+  background-color: #9dcddb;
+  color: #015249;
+  border: solid 2px;
+  text-shadow: 1px 1px 1px;
+}
