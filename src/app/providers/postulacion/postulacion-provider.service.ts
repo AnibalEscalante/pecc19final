@@ -10,7 +10,7 @@ export class PostulacionProviderService {
   constructor(private httpService: HttpService) {
   }
   public createPostulacion(postulacion: any): Observable<any>{
-    console.log(postulacion);
+    //console.log(postulacion);
     return this.httpService.post<any>('/api/postulacion/add', postulacion);
     //postulacion$.toPromise();
     //return postulacion$;

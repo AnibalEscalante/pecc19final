@@ -28,21 +28,21 @@ export class PostulacionesTrabajoInfoComponent implements OnInit {
   public async postulacion()
   {
     let postulacionUsuario: Partial<Postulacion> = {
-      _idhosp: "10", _idUsuario: "42"
+      _idhosp: "p",
+      _idUsuario: "p"
     };
-     this.mensaje = "Postulacion exitosa";
-      this.isDivVisible = true;
+     
     try {
       console.log(postulacionUsuario);
-      await this.PostulacionProviderService.createPostulacion({
-        "_idUsuario": "31231",
-        "_idhosp": "13240"
-        }).toPromise();
-     
+      await this.PostulacionProviderService.createPostulacion(postulacionUsuario).subscribe();
+     this.mensaje = "Postulacion exitosa";
+      this.isDivVisible = true;
     
     } catch (error) {
       console.log(error);
     }
     
   }
+
+
 }

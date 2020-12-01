@@ -16,7 +16,7 @@ export class HttpService {
 
     this.httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type': 'aplication/json',
+        'Content-Type': 'application/json',
         'Autorization': ''
       })
     }
@@ -30,7 +30,7 @@ export class HttpService {
   }
   
   public post<type>(path: string, body: any): Observable<type>{
-    console.log(body);
+    //console.log(body);
     return this.httpClient.post<type>(this.baseUrl + path, body, this.httpOptions)
     .pipe(map((data: any) => {
       return data.message as type;
@@ -43,6 +43,23 @@ export class HttpService {
         return data.message as type;
       }));
   }
+  public delete<type>(path: string): Observable<type>{
+    return this.httpClient.post<type>(this.baseUrl + path, this.httpOptions)
+    .pipe(map((data: any) => {
+      return data.message as type;
+    }));
+  }
+
+  public patch<type>(path: string, body: any): Observable<type>{
+    console.log(body);
+    return this.httpClient.post<type>(this.baseUrl + path, body, this.httpOptions)
+    .pipe(map((data: any) => {
+      return data.message as type;
+    }));
+  }
+
+
+
 
 
 }
