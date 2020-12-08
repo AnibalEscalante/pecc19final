@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { DatoClinica } from '../../../../models/datoclinica.model';
 import { PostulacionProviderService } from '../../../../providers/postulacion/postulacion-provider.service';
 import { Postulacion } from '../../../../models/postulacionusuario.model';
+import { usuarioHospital } from '../../../../models/usuarioHospital.model';
 
 @Component({
   selector: 'app-postulaciones-trabajo-info',
@@ -11,7 +11,7 @@ import { Postulacion } from '../../../../models/postulacionusuario.model';
 export class PostulacionesTrabajoInfoComponent implements OnInit {
 
   @Input()
-  public datoClinica: DatoClinica;
+  public hospital: usuarioHospital;
 
   mensaje: string = "";
   isDivVisible = false;
@@ -28,10 +28,10 @@ export class PostulacionesTrabajoInfoComponent implements OnInit {
   public async postulacion()
   {
     let postulacionUsuario: Partial<Postulacion> = {
-      _idhosp: "p",
       _idUsuario: "p"
+
     };
-     
+    postulacionUsuario._idhosp = this.hospital.email;    
     try {
       console.log(postulacionUsuario);
       await this.PostulacionProviderService.createPostulacion(postulacionUsuario).subscribe();

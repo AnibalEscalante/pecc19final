@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DatoClinica } from '../../../../models/datoclinica.model';
+import { usuarioHospital } from '../../../../models/usuarioHospital.model';
+import { UserHospProviderService } from '../../../../providers/user-hosp/user-hosp-provider.service';
 
 @Component({
   selector: 'app-postulaciones-trabajo',
@@ -9,12 +11,15 @@ import { DatoClinica } from '../../../../models/datoclinica.model';
 export class PostulacionesTrabajoComponent implements OnInit {
 
   @Input()
-  public datoClinica: DatoClinica;
-
-  constructor(){
+  public hospital: usuarioHospital;
+  constructor() {
+    
   }
 
   ngOnInit(): void {
+    
+     
+   
   }
 
 }

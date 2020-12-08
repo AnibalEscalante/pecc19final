@@ -9,8 +9,8 @@
                 <h5 class="card-title text-left mt-4 ml-4">Seleccione la clinica</h5>
                 <div class="card-body">
                     <div class="accordion" id="accordionExample">
-                        <div class="col-12" *ngFor="let DatoClinica of datosClinica">
-                            <app-postulaciones-trabajo [datoClinica]="DatoClinica"></app-postulaciones-trabajo>
+                        <div class="col-12" *ngFor="let usuarioHospital of hospital">
+                            <app-postulaciones-trabajo [hospital]="usuarioHospital"></app-postulaciones-trabajo>
                         </div>
                     </div>
                 </div>

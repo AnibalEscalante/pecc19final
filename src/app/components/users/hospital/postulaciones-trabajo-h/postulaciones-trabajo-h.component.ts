@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DatoUsuario } from '../../../../models/datousuario.model';
+import { User } from '../../../../models/user.model';
 
 @Component({
   selector: 'app-postulaciones-trabajo-h',
@@ -9,7 +10,7 @@ import { DatoUsuario } from '../../../../models/datousuario.model';
 export class PostulacionesTrabajoHComponent implements OnInit {
 
   @Input()
-  public datoUsuario: DatoUsuario;
+  public user: User;
   constructor() { }
   
   ngOnInit(): void {

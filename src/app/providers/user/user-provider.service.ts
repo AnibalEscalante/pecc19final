@@ -31,5 +31,16 @@ export class UserProviderService {
     return this.httpService.patch<Partial<User>>('/api/user/modificar', email);
   };
 
+  public getUser(): Observable<User[]>{
+    //console.log(login);
+
+    return this.httpService.get<User[]>('/api/user/usuarios');
+  };
+
+  public getUserById(id: string): Observable<User>{
+
+    return this.httpService.get<User>('/api/user/id/'+id);
+  };
+  
 
 }

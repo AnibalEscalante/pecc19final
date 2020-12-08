@@ -8,8 +8,8 @@
                 <h5 class="card-title text-left mt-3 ml-4">Seleccione el usuario del hospital</h5>
                 <div class="card-body scroll">
                     <div class="accordion" id="accordionExample">
-                        <div class="col-12" *ngFor="let DatoUsuario of datosUsuario">
-                            <app-postulaciones-trabajo-h [datoUsuario]="DatoUsuario"></app-postulaciones-trabajo-h>
+                        <div class="col-12" *ngFor="let User of user">
+                            <app-postulaciones-trabajo-h [user]="User"></app-postulaciones-trabajo-h>
                         </div>
                     </div>
                 </div>

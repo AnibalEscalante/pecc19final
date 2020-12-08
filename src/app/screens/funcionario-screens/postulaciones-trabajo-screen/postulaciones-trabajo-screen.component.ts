@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DatoClinica } from '../../../models/datoclinica.model';
-import { InfoclinicaService } from '../../../services/infoclinica/infoclinica.service';
+//import { InfoclinicaService } from '../../../services/infoclinica/infoclinica.service';
+import { usuarioHospital } from '../../../models/usuarioHospital.model';
+import { UserHospProviderService } from '../../../providers/user-hosp/user-hosp-provider.service';
 
 @Component({
   selector: 'app-postulaciones-trabajo-screen',
@@ -9,14 +11,30 @@ import { InfoclinicaService } from '../../../services/infoclinica/infoclinica.se
 })
 export class PostulacionesTrabajoScreenComponent implements OnInit {
 
-  public datosClinica: DatoClinica[];
-
-    constructor(private informacionClinica: InfoclinicaService){
-
+    public hospital: usuarioHospital[];
+    constructor(
+      private userhospitalproviderservice: UserHospProviderService
+    ) {
     }
+    async ngOnInit(): Promise<void> {
+    
+    try {
+      this.hospital = await this.userhospitalproviderservice.getPosutlaciones().toPromise();
+    
+    } catch (error) {
+      console.log(error);
+    }
+  
+    console.log(this.hospital);
+  }
+  
+  //public datosClinica: DatoClinica[];
+    /*constructor(/*private informacionClinica: InfoclinicaService){
 
-    ngOnInit(): void {
+}*/
+/*ngOnInit(): void {
       this.datosClinica = this.informacionClinica.getAlldatosClinica();
     }
+    */
 
 }

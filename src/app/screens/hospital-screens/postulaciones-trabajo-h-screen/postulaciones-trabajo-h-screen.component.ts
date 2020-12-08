@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DatoUsuario } from '../../../models/datousuario.model';
-import { DatousuarioService } from '../../../services/datousuario/datousuario.service';
+//import { DatousuarioService } from '../../../services/datousuario/datousuario.service';
+import { User } from '../../../models/user.model';
+import { UserProviderService } from '../../../providers/user/user-provider.service';
 
 @Component({
   selector: 'app-postulaciones-trabajo-h-screen',
@@ -8,12 +10,21 @@ import { DatousuarioService } from '../../../services/datousuario/datousuario.se
   styleUrls: ['./postulaciones-trabajo-h-screen.component.less']
 })
 export class PostulacionesTrabajoHScreenComponent implements OnInit {
-
-  public datosUsuario: DatoUsuario[];
-  constructor(private datosusuarioService: DatousuarioService){
-
+  
+  public user: User[];
+  constructor(
+    private userproviderservice: UserProviderService 
+  ){
   }
-  ngOnInit(): void {
-    this.datosUsuario = this.datosusuarioService.getAllDatosUsuario();
+  async ngOnInit(): Promise<void> {
+
+    try {
+      this.user = await this.userproviderservice.getUser().toPromise();
+    } catch (error) {
+      console.log(error);
+    }
+     console.log(this.user)
   }
+ 
+
 }
